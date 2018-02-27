@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1519752261138" clover="3.2.0">
-  <project timestamp="1519752261138" name="All files">
-    <metrics statements="42" coveredstatements="36" conditionals="13" coveredconditionals="7" methods="8" coveredmethods="6" elements="63" coveredelements="49" complexity="0" loc="42" ncloc="42" packages="3" files="6" classes="6">
+<coverage generated="1519752447958" clover="3.2.0">
+  <project timestamp="1519752447958" name="All files">
+    <metrics statements="42" coveredstatements="37" conditionals="13" coveredconditionals="7" methods="8" coveredmethods="7" elements="63" coveredelements="51" complexity="0" loc="42" ncloc="42" packages="3" files="6" classes="6">
       <package name="dbms">
         <metrics statements="10" coveredstatements="7" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="0"/>
         <file name="server.js" path="/Users/sahilbalodi/Desktop/dbms/server.js">
@@ -64,11 +64,11 @@
         </file>
       </package>
       <package name="dbms.routes">
-        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <file name="routes.js" path="/Users/sahilbalodi/Desktop/dbms/routes/routes.js">
-          <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="1" count="1" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
+          <line num="5" count="2" type="stmt"/>
         </file>
       </package>
     </metrics>
