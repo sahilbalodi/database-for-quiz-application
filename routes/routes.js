@@ -25,7 +25,7 @@ module.exports = [{
           const send = [];
           userResponses.forEach((responseForQuestion) => {
             send.push({
-              questionId: responseForQuestion.Id,
+              questionId: responseForQuestion.questionId,
               response: responseForQuestion.response,
             });
           });
@@ -43,7 +43,7 @@ module.exports = [{
       if (questionsWithOptions.length === 0) {
         api1Data().then((data) => {
           const allQuestionsObject = JSON.parse(data);
-          const allQuestions = allQuestionsObject.allQuestions;
+          const { allQuestions } = allQuestionsObject;
           const dataAboutAllQuestions = [];
           allQuestions.forEach((question) => { dataAboutAllQuestions.push(getAnswer(question)); });
           Promise.all(dataAboutAllQuestions).then((values) => {
@@ -93,6 +93,22 @@ module.exports = [{
           response(questionsWithOptionsObject);
         });
       }
+    });
+  },
+},
+{
+  path: '/changeResponse',
+  method: 'POST',
+  handler: (request, result) => {
+    const username = request.payload.name;
+    const { questionId } = request.payload;
+    const { response } = request.payload;
+    db.userresponses.upsert({
+      name: username,
+      questionId,
+      response,
+    }).then(() => {
+      result('updated');
     });
   },
 }];
