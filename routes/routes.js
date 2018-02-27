@@ -111,4 +111,31 @@ module.exports = [{
       result('updated');
     });
   },
+},
+{
+  path: '/calculateScore',
+  method: 'POST',
+  handler: (request, response) => {
+    const username = request.payload.name;
+    let score = 0;
+    db.questions.findAll().then((allQuestions) => {
+      db.userresponses.findAll({ where: { name: username } }).then((userResponses) => {
+        allQuestions.forEach((question) => {
+          userResponses.forEach((userResponseForQuestion) => {
+            if (question.questionId === userResponseForQuestion.questionId) {
+              if (question.answer === userResponseForQuestion.response) {
+                score += 1;
+              }
+            }
+          });
+        });
+        db.users.upsert({
+          name: username,
+          score,
+        }).then(() => {
+          response(score);
+        });
+      });
+    });
+  },
 }];
