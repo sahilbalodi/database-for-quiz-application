@@ -1,11 +1,11 @@
 
 module.exports = (sequelize, DataTypes) => {
-  const userresponse = sequelize.define('userresponse', {
-    name:{
+  const userresponses = sequelize.define('userresponses', {
+    name: {
       primaryKey: true,
       type: DataTypes.STRING,
     },
-    questionId:{
+    questionId: {
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
@@ -17,6 +17,6 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   });
-  userresponse.removeAttribute('id');
-  return userresponse;
+  userresponses.removeAttribute('id');
+  return userresponses;
 };

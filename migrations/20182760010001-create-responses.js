@@ -1,6 +1,6 @@
 
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('userresponse', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('userresponses', {
     name: {
       allowNull: false,
       type: Sequelize.STRING,
@@ -21,7 +21,7 @@ module.exports = {
       allowNull: false,
       type: Sequelize.DATE,
     },
-  }).then(() => queryInterface.sequelize.query('ALTER TABLE "userresponse" ADD CONSTRAINT "response" PRIMARY KEY ("name", "questionId")')),
+  }).then(() => queryInterface.sequelize.query('ALTER TABLE "userresponses" ADD CONSTRAINT "responses" PRIMARY KEY ("name", "questionId")')),
 
-  down: queryInterface => queryInterface.dropTable('userresponse'),
+  down: queryInterface => queryInterface.dropTable('userresponses'),
 };
