@@ -138,4 +138,16 @@ module.exports = [{
       });
     });
   },
+},
+{
+  path: '/topScorers',
+  method: 'GET',
+  handler: (request, response) => {
+    db.users.findAll({
+      limit: 5,
+      order: [['score', 'DESC']],
+    }).then((result) => {
+      response(result);
+    });
+  },
 }];
