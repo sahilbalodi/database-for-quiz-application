@@ -23,13 +23,19 @@ module.exports = [{
       } else {
         db.userresponses.findAll({ where: { name: username } }).then((userResponses) => {
           const send = [];
-          userResponses.forEach((responseForQuestion) => {
-            send.push({
-              questionId: responseForQuestion.questionId,
-              response: responseForQuestion.response,
+          db.questions.findAll().then((questionsWithOptions) => {
+            userResponses.forEach((responseForQuestion) => {
+              questionsWithOptions.forEach((questions) => {
+                if (questions.questionId === responseForQuestion.questionId) {
+                  send.push({
+                    questionId: responseForQuestion.questionId,
+                    response: responseForQuestion.response,
+                  });
+                }
+              });
             });
+            response(send);
           });
-          response(send);
         });
       }
     });
